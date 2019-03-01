@@ -226,9 +226,5 @@ function createMenu () {
   return Menu.buildFromTemplate(require('./lib/menu'))
 }
 
-function hoangNam () {
-    console.log("fuck hoang nam lol")
-}
-
 // Manage Squirrel startup event (Windows)
 require('./lib/auto-update/startup')(initialize)
