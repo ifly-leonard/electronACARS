@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>electronACARS</h1>
+      </header>
+      <section class="main">
+        <h2>electronACARS</h2>
+
+        <h3>FSUIPC Input</h3>
+
+        <ul>
+          <li>Altitude: </li>
+          <li>True Airspeed: </li>
+          <li>Lat: </li>
+          <li>Long: </li>
+          <li>Squawk: </li>
+        </ul>
+      </section>
+      <footer>
+        <p>
+          <small>
+            <!-- All of the Node.js APIs are available in this renderer process. -->
+            We are using node <script>document.write(process.versions.node)</script>,
+            Chromium <script>document.write(process.versions.chrome)</script>,
+            and Electron <script>document.write(process.versions.electron)</script>.
+          </small>
+        </p>
+      </footer>
+    </div>
+  </body>
+  <script>
+    // You can also require other files to run in this process
+    require('./assets/js/ex-links.js')
+    require('./assets/js/notifications.js')
+    require('./assets/js/actions/zoom.js')
+    require('./assets/js/context-menu.js')
+  </script>
+</html>

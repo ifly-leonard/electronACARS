@@ -1,0 +1,133 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js install
+
+PATH: 
+  /home/skye/.local/bin:/home/skye/bin:/home/skye/.local/bin:/home/skye/bin:/usr/share/Modules/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin
+
+Yarn version: 
+  1.13.0
+
+Node version: 
+  11.10.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/skye/electronACARS/package.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:304:30)
+      at /usr/share/yarn/lib/cli.js:315:13
+
+npm manifest: 
+  {
+    "name": "electronACARS",
+    "description": "electronACARS is a flight simulator ACARS system",
+    "version": "0.0.7",
+    "author": {
+      "name": "Skye Viau",
+      "email": "skye.viau@gmail.com",
+      "url": "http://skyenet.gq/"
+    },
+    "license": "GPLv3",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/PretzelCA/electronACARS.git"
+    },
+    "main": "main.js",
+    "scripts": {
+      "test": "standard && mocha --recursive",
+      "unit": "standard && mocha test/unit --recursive",
+      "integration": "standard && mocha test/integration --recursive",
+      "coverage": "istanbul cover node_modules/.bin/_mocha -- --recursive",
+      "depcheck": "dependency-check app --entry main.js --unused --no-dev",
+      "lint": "standard",
+      "start": "electron ./app/main",
+      "clean:linux": "rimraf dist/linux* dist/*.deb dist/*.AppImage",
+      "clean:osx": "rimraf dist/mac",
+      "clean:win": "rimraf dist/win*",
+      "clean": "npm run clean:linux && npm run clean:win && npm run clean:osx",
+      "pack:osx": "build --dir --mac",
+      "pack:win": "build --dir --win --x64",
+      "pack:linux": "build --dir --linux --x64",
+      "pack": "build --dir",
+      "prebuild": "node build/target.js",
+      "build:osx": "npm run prebuild && build --mac && npm run postbuild",
+      "build:win": "npm run prebuild && build --win --x64 && npm run postbuild",
+      "build:linux": "npm run prebuild && build --linux deb AppImage --x64 && npm run postbuild",
+      "build": "build",
+      "postbuild": "node build/target.js --clean",
+      "postinstall": "install-app-deps"
+    },
+    "standard": {
+      "globals": [
+        "describe",
+        "after",
+        "it",
+        "before",
+        "beforeEach",
+        "afterEach",
+        "rm",
+        "cp"
+      ]
+    },
+    "pre-commit": [
+      "lint",
+      "unit"
+    ],
+    "keywords": [
+      "electron-app",
+      "electron",
+      "boilerplate"
+    ],
+    "build": {
+      "appId": "com.bzcoding.skelektron",
+      "productName": "SkelEktron",
+      "dmg": {
+        "iconSize": 120,
+        "iconTextSize": 14,
+        "contents": [
+          {
+            "x": 478,
+            "y": 170,
+            "type": "link",
+            "path": "/Applications"
+          },
+          {
+            "x": 130,
+            "y": 170,
+            "type": "file"
+          }
+        ]
+      },
+      "mac": {
+        "category": "public.app-category.business"
+      },
+      "linux": {
+        "category": "Development"
+      },
+      "win": {}
+    },
+    "devDependencies": {
+      "async": "^2",
+      "chai": "^3",
+      "chai-as-promised": "^6",
+      "dependency-check": "^2",
+      "electron": "^3.0.7",
+      "electron-builder": "^20.31.0",
+      "istanbul": "^0.4",
+      "mocha": "^5.2.0",
+      "pre-commit": "^1",
+      "rimraf": "^2",
+      "shelljs": "^0.7",
+      "spectron": "^5.0.0",
+      "standard": "^8"
+    }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
